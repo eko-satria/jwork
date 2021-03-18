@@ -8,45 +8,60 @@
 public class Invoice
 {
     private int id;
-    private int idJob;
+    private int idJobs;
     private String date;
     private int totalFee;
+    private Jobseeker jobseeker;
 
-    public Invoice()
+    public Invoice(int id, int idJobs, String date, int totalFee, Jobseeker jobseeker)
     {
-
+        this.id = id;
+        this.idJobs = idJobs;
+        this.date = date;
+        this.totalFee = totalFee;
+        this.jobseeker = jobseeker;
     }
 
-    public static int getid(){
-        return 0;
+    public int getid(){
+        return id;
     }
 
-    public static int getidJob(){
-        return 0;
+    public int getidJobs(){
+        return idJobs;
     }
 
-    public static String getDate(){
-        return "oop";
+    public String getDate(){
+        return date;
     }
     
-    public static int geTotalFee(){
-        return 0;
+    public int getTotalFee(){
+        return totalFee;
+    }
+
+    public Jobseeker getJobseeker(){
+        return jobseeker;
     }
 
     public void setid(int id){
-
+        this.id = id;
     }
 
     public void setidJobs(int idJobs){
-
+        this.idJobs = idJobs;
     }
 
     public void setDate(String date){
-
+        this.date = date;
     }
 
-    public void setTotalFee(String  totalfee){
-
+    public void setTotalFee(int  totalfee){
+        this.totalFee = totalfee;
     }
+
+    public void setJobseeker(Jobseeker jobseeker){
+        this.jobseeker = jobseeker;
+    }
+
+    public void printData(){};
 
 }

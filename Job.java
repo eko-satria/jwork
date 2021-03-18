@@ -12,42 +12,55 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private int category;
+    private String category;
+    private Recruiter recruiter;
 
-    public Job()
+    public Job(int id, String name, int fee, String category, Recruiter recruiter)
     {
-
+        this.id = id;
+        this.name = name;
+        this.fee = fee;
+        this.category = category;
+        this.recruiter = recruiter;
     }
 
-    public static int getid(){
-        return 0;
+    public int getid(){
+        return id;
     }
 
-    public static String getName(){
-        return "oop";
+    public String getName(){
+        return name;
     }
 
-    public static int getFee(){
-        return 0;
+    public int getFee(){
+        return fee;
     }
 
-    public static String getCategory(){
-        return "oop";
+    public String getCategory(){
+        return category;
+    }
+
+    public Recruiter getRecruiter(){
+        return recruiter;
     }
 
     public void setId(int id){
-
-    }
+        this.id = id;
+    }   
 
     public void setName(String name){
+        this.name = name;
+    }
 
+    public void setRecruiter(Recruiter recruiter){
+        this.recruiter = recruiter;
     }
 
     public void setFee(int fee){
-
+        this.fee = fee;
     }
 
     public void setCategory(String category){
-        
+        this.category = category;
     }
 }
