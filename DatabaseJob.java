@@ -2,7 +2,7 @@ public class DatabaseJob {
     private String[] listJob;
     private Job job;
 
-    public DatabaseJob(){
+    public DatabaseJob(Job job){
         this.job = job;
     }
 

@@ -1,19 +1,18 @@
-
-
 public class Jobseeker
 {
     // instance variables - replace the example below with your own
     private int id;
     private String name;
     private String email;
-    private String joinDate;
     private String password;
+    private String joinDate;
 
-    public Jobseeker(int id, String name, String email, String password, String JoinDate)
+    public Jobseeker(int id, String name, String email, String password, String joinDate)
     {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.password = password;
         this.joinDate = joinDate;
     }
 
@@ -61,7 +60,11 @@ public class Jobseeker
         this.joinDate = joinDate;
     }
 
-    public String toString(){
-        return name;
-    }
+    public void printData(){
+        System.out.println("ID: " + getid());
+        System.out.println("Name: " + getName());
+        System.out.println("Email:" + getEmail());
+        System.out.println("Password: " + getPassword());
+        System.out.println("Join Date:" + getJoinDate());
+    };
 }

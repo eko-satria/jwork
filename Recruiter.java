@@ -61,8 +61,12 @@ public class Recruiter
         this.location = location;
     }
 
-    public String toString(){
-        return name;
+    public void printData(){
+        System.out.println("ID: " +getId());
+        System.out.println("Name" +getName());
+        System.out.println("Email" +getEmail());
+        System.out.println("PhoneNumber" +getPhoneNumber());
+        System.out.println("Location" +getLocation());
+
+    };
     }
-    }
-}

@@ -62,6 +62,13 @@ public class Invoice
         this.jobseeker = jobseeker;
     }
 
-    public void printData(){};
+    public void printData(){
+        System.out.println("ID: " +getid());
+        System.out.println("IDjobs: " +getidJobs());
+        System.out.println("Date:" +getDate());
+        System.out.println("Total Fee: " +getTotalFee());
+        System.out.println("Jobseeker" +getJobseeker());
+        
+    }
 
 }

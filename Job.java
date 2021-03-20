@@ -1,5 +1,3 @@
-import java.util.Locale.Category;
-
 /**
  * Write a description of class Job here.
  *
@@ -63,4 +61,12 @@ public class Job
     public void setCategory(String category){
         this.category = category;
     }
+
+    public void printData(){
+        System.out.println("ID: "+getid());
+        System.out.println("Name"+getName());
+        System.out.println("Fee"+getFee());
+        System.out.println("Category"+getCategory());
+        System.out.println("Recruiter"+getRecruiter());
+    };
 }

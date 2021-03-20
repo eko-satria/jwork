@@ -33,8 +33,9 @@ public class Location {
         this.description = description;
     }
 
-    public String toString(){
-        return province;
+    public void printData(){
+        System.out.println("City: " +getCity());
+        System.out.println("Provinve: "+getProvince());
+        System.out.println("Description: " +getDescription());
     }
-        
-    }
+    }    
