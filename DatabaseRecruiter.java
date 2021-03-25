@@ -1,23 +1,24 @@
-package doc;
-
 public class DatabaseRecruiter {
-    private String[] listRecruiter;
-    private Recruiter recruiter;
+    private static String[] listRecruiter;
+    private static Recruiter recruiter;
 
     public DatabaseRecruiter(Recruiter recrtuiter){
         this.recruiter = recruiter;
+    }
 
-        public boolean addRecruiter (Recruiter recruiter) {
-            return false;
-        }
+    public static boolean addRecruiter (Recruiter recruiter){
+        return false;
+    }
 
-        public boolean removeRecruiter (Recruiter recruiter) {
-            return false;
-        }
+    public static boolean removeRecruiter(Recruiter recruiter){
+        return false;
+    }
 
-        public Recruiter getrecruiter() {
-            return recruiter;
-            
-        }
+    public static Recruiter getRecruiter(){
+        return recruiter;
+    }
+
+    public static String[] getListRecruiter(){
+        return listRecruiter;
     }
 }

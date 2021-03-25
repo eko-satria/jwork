@@ -10,10 +10,10 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private String category;
+    private JobCategory category;
     private Recruiter recruiter;
 
-    public Job(int id, String name, int fee, String category, Recruiter recruiter)
+    public Job(int id, String name, int fee, JobCategory category, Recruiter recruiter)
     {
         this.id = id;
         this.name = name;
@@ -30,16 +30,16 @@ public class Job
         return name;
     }
 
+    public Recruiter getRecruiter(){
+        return recruiter;
+    }
+
     public int getFee(){
         return fee;
     }
 
-    public String getCategory(){
+    public JobCategory getCategory(){
         return category;
-    }
-
-    public Recruiter getRecruiter(){
-        return recruiter;
     }
 
     public void setId(int id){
@@ -58,15 +58,17 @@ public class Job
         this.fee = fee;
     }
 
-    public void setCategory(String category){
+    public void setCategory(JobCategory category){
         this.category = category;
     }
 
     public void printData(){
+        System.out.println("================= JOB =================");
         System.out.println("ID: "+getid());
-        System.out.println("Name"+getName());
-        System.out.println("Fee"+getFee());
-        System.out.println("Category"+getCategory());
-        System.out.println("Recruiter"+getRecruiter());
+        System.out.println("Name: "+getName());
+        System.out.println("Recruiter: "+getRecruiter().getName());
+        System.out.println("Fee: "+getFee());
+        System.out.println("Category: "+getCategory());
+        
     };
 }

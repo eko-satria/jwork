@@ -1,24 +1,24 @@
 public class DatabaseJob {
-    private String[] listJob;
-    private Job job;
+    private static String[] listJob;
+    private static Job job;
 
     public DatabaseJob(Job job){
         this.job = job;
     }
 
-    public boolean addJob(Job job){
+    public static boolean addJob(Job job){
         return false;
     }
 
-    public boolean removeJob(Job job){
+    public static boolean removeJob(Job job){
         return false;
     }
 
-    public Job getJob(){
-        return job;
+    public static Job getJob(){
+        return job ;
     }
 
-    public String[] getListJob() {
+    public static String[] getListJob() {
         return listJob;
     }
 
