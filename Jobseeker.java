@@ -63,8 +63,8 @@ public class Jobseeker
     public void printData(){
         System.out.println("ID: " + getid());
         System.out.println("Name: " + getName());
-        System.out.println("Email:" + getEmail());
+        System.out.println("Email: " + getEmail());
         System.out.println("Password: " + getPassword());
-        System.out.println("Join Date:" + getJoinDate());
+        System.out.println("Join Date: " + getJoinDate());
     };
 }

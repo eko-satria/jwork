@@ -12,14 +12,18 @@ public class Invoice
     private String date;
     private int totalFee;
     private Jobseeker jobseeker;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
 
-    public Invoice(int id, int idJobs, String date, int totalFee, Jobseeker jobseeker)
+    public Invoice(int id, int idJobs, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
     {
         this.id = id;
         this.idJobs = idJobs;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
 
     public int getid(){
@@ -42,6 +46,14 @@ public class Invoice
         return jobseeker;
     }
 
+    public PaymentType getPaymentType(){
+        return paymentType;
+    }
+
+    public InvoiceStatus getInvoiceStatus(){
+        return status;
+    }
+
     public void setid(int id){
         this.id = id;
     }
@@ -62,12 +74,20 @@ public class Invoice
         this.jobseeker = jobseeker;
     }
 
+    public void setPaymentType(PaymentType paymentType){
+        this.paymentType = paymentType;
+    }
+
+    public void setInvoiceStatus(InvoiceStatus status){
+        this.status = status;
+    }
     public void printData(){
         System.out.println("ID: " +getid());
         System.out.println("IDjobs: " +getidJobs());
-        System.out.println("Date:" +getDate());
+        System.out.println("Date: " +getDate());
         System.out.println("Total Fee: " +getTotalFee());
-        System.out.println("Jobseeker" +getJobseeker());
+        System.out.println("Jobseeker: " +getJobseeker().getName());
+        System.out.println("Status: " +getInvoiceStatus());
         
     }
 
