@@ -87,6 +87,7 @@ public class Invoice
         System.out.println("Date: " +getDate());
         System.out.println("Total Fee: " +getTotalFee());
         System.out.println("Jobseeker: " +getJobseeker().getName());
+        System.out.println("Payment Type: " +getPaymentType());
         System.out.println("Status: " +getInvoiceStatus());
         
     }
