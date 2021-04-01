@@ -5,33 +5,31 @@
  * @author (your name)
  * @version (a version number or a date)
  */
-public class Invoice
+public abstract class Invoice
 {
     private int id;
-    private int idJobs;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
 
-    public Invoice(int id, int idJobs, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status)
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
-        this.idJobs = idJobs;
+        this.job = job;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
 
     public int getid(){
         return id;
     }
 
-    public int getidJobs(){
-        return idJobs;
+    public Job getJob(){
+        return job;
     }
 
     public String getDate(){
@@ -46,50 +44,36 @@ public class Invoice
         return jobseeker;
     }
 
-    public PaymentType getPaymentType(){
-        return paymentType;
-    }
+    public abstract PaymentType getPaymentType();
 
     public InvoiceStatus getInvoiceStatus(){
-        return status;
+        return invoiceStatus;
     }
 
     public void setid(int id){
         this.id = id;
     }
 
-    public void setidJobs(int idJobs){
-        this.idJobs = idJobs;
+    public void setidJobs(Job job){
+        this.job = job;
     }
 
     public void setDate(String date){
         this.date = date;
     }
 
-    public void setTotalFee(int  totalfee){
-        this.totalFee = totalfee;
-    }
+    public abstract void setTotalFee();
 
     public void setJobseeker(Jobseeker jobseeker){
         this.jobseeker = jobseeker;
     }
 
-    public void setPaymentType(PaymentType paymentType){
-        this.paymentType = paymentType;
+    public void setPaymentType(){;
     }
 
     public void setInvoiceStatus(InvoiceStatus status){
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
-    public void printData(){
-        System.out.println("ID: " +getid());
-        System.out.println("IDjobs: " +getidJobs());
-        System.out.println("Date: " +getDate());
-        System.out.println("Total Fee: " +getTotalFee());
-        System.out.println("Jobseeker: " +getJobseeker().getName());
-        System.out.println("Payment Type: " +getPaymentType());
-        System.out.println("Status: " +getInvoiceStatus());
-        
-    }
+    public abstract void printData();
 
 }
