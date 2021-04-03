@@ -1,4 +1,4 @@
-public abstract class EwalletPayment extends Invoice {
+public class EwalletPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
@@ -6,7 +6,7 @@ public abstract class EwalletPayment extends Invoice {
         super(id, job, date, jobseeker, invoiceStatus);
     }
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, Bonus bonus, InvoiceStatus invoiceStatus){
+    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker,Bonus bonus, InvoiceStatus invoiceStatus){
         super(id, job, date, jobseeker, invoiceStatus);
         this.bonus = bonus;
     }
@@ -32,25 +32,29 @@ public abstract class EwalletPayment extends Invoice {
             totalFee = super.getJob().getFee();
         }
     
+}
     public void printData(){
-        if(getBonus().getActive() == false || totalFee < getBonus().getMinTotalFee()){
-            System.out.println("ID: " +getid() +
-            "\nJob: " +getJob() +
+        if(bonus == null || totalFee < getBonus().getMinTotalFee()){
+            System.out.println("++++++++++++++++++++++++++++++++++++" +
+            "\nID: " +getid() +
+            "\nJob: " +getJob().getName() +
             "\nDate: " +getDate() +
-            "\nTotal Fee: " +getTotalFee()+
             "\nJobseeker: " +getJobseeker().getName() +
             "\nPayment Type: " +getPaymentType() +
-            "\nStatus: " +getInvoiceStatus());
+            "\nStatus: " +getInvoiceStatus()+
+            "\n++++++++++++++++++++++++++++++++++++");
         }
         else{
-            System.out.println("ID: " +getid() +
-            "\nJob: " +getJob() +
+            System.out.println("++++++++++++++++++++++++++++++++++++" +
+            "\nID: " +getid() +
+            "\nJob: " +getJob().getName() +
             "\nDate: " +getDate() +
             "\nTotal Fee: " +getTotalFee()+
             "\nJobseeker: " +getJobseeker().getName() +
             "\nPayment Type: " +getPaymentType() +
             "\nStatus: " +getInvoiceStatus()+
-            "\nReferral Code : " + getBonus().getRefferalCode());
+            "\nReferral Code : " + getBonus().getRefferalCode() +
+            "\n++++++++++++++++++++++++++++++++++++");
         }
-}
     }
+}

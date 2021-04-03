@@ -71,7 +71,7 @@ public abstract class Invoice
     public void setPaymentType(){;
     }
 
-    public void setInvoiceStatus(InvoiceStatus status){
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus){
         this.invoiceStatus = invoiceStatus;
     }
     public abstract void printData();
