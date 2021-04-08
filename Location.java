@@ -88,13 +88,14 @@ public class Location {         //kelas yang memuat informasi mengenai lokasi
         this.description = description;
     }
 
-    /**
-     * Metode yang digunakan untuk melakukan print terhadap variabel yang digunakan
-     */
     
-    public void printData(){
+    /**public void printData(){
         System.out.println("City: " +getCity());
         System.out.println("Provinve: "+getProvince());
         System.out.println("Description: " +getDescription());
+    }*/
+
+    public String toString(){
+        return province + " " + city + " " + description;
     }
     }    

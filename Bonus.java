@@ -53,5 +53,7 @@ public class Bonus {
         this.active = active;
     }
 
-    public void printData(){}
+    public String toString(){
+        return id + " " + referralCode + " " + extraFee + " " + minTotalFee + " " + active;
+    }
 }

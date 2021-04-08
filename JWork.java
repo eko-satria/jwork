@@ -1,3 +1,4 @@
+import java.util.GregorianCalendar;
 
 /**
  * Write a description of class JWork here.
@@ -8,8 +9,11 @@
 public class JWork
 {
     public static void main(String[] args) {
-        Jobseeker jobseeker1 = new Jobseeker(1, "shinta", "shinta767", "password", "05-01-2021");
-        Location location1 = new Location("Jakarta", "Jakarta", "Ibu kota");
+
+        Jobseeker jobseeker1 = new Jobseeker(1, "Anto", ".Antostell@gmail.com", "add", new GregorianCalendar(2021, 03, 04));
+        Jobseeker jobseeker2 = new Jobseeker(2, "Amelia", "Amelia23@gmail.com", "Tehyun6", 2021, 2, 03);
+        Jobseeker jobseeker3 = new Jobseeker(3, "Shintia", "Shintia62@gmail.com", "Towerbabel");
+        /*Location location1 = new Location("Jakarta", "Jakarta", "Ibu kota");
         Recruiter recruiter1 = new Recruiter(1, "eko", "ekosatria@ui.ac.id", "0888888", location1);
         Job job1 = new Job(1, "Senior Designer", 100, JobCategory.FrontEnd, recruiter1);
         Job job2 = new Job(2, "Senior Designer", 500, JobCategory.UI, recruiter1);
@@ -17,14 +21,11 @@ public class JWork
         BankPayment payment1 = new BankPayment(1, job1, "03-03-2021", jobseeker1, InvoiceStatus.FINISHED);
         BankPayment payment2 = new BankPayment(2, job1,"05-03-2021", jobseeker1, InvoiceStatus.ONGOING);
         BankPayment payment3 = new BankPayment(3, job2, "06-03-2021", jobseeker1, InvoiceStatus.ONGOING, 200);
-        
-        payment1.setTotalFee();
-        payment1.printData();
+        */
 
-        payment2.setTotalFee();
-        payment2.printData();
+        jobseeker1.toString();
+        jobseeker2.toString();
+        jobseeker3.toString();
 
-        payment3.setTotalFee();
-        payment3.printData();
         }
     }

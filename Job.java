@@ -62,7 +62,7 @@ public class Job
         this.category = category;
     }
 
-    public void printData(){
+    /*public void printData(){
         System.out.println("================= JOB =================");
         System.out.println("ID: "+getid());
         System.out.println("Name: "+getName());
@@ -70,5 +70,9 @@ public class Job
         System.out.println("Fee: "+getFee());
         System.out.println("Category: "+getCategory());
         
-    };
+    }*/
+
+    public String toString(){
+        return id + " " + name + " " + getRecruiter().getName() + " " + fee + " " + category;
+    }
 }
