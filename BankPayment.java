@@ -3,11 +3,11 @@ public class BankPayment extends Invoice{
     int adminFee;
 
     public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, date, jobseeker, invoiceStatus);
+        super(id, job, jobseeker, invoiceStatus);
     }
 
     public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee){
-        super(id, job, date, jobseeker, invoiceStatus);
+        super(id, job, jobseeker, invoiceStatus);
         this.adminFee = adminFee;
     }
 
@@ -33,7 +33,30 @@ public class BankPayment extends Invoice{
         }
     }
 
-    public void printData(){
+    public String toString(){
+        if(adminFee == 0){
+            return "++++++++++++++++++++++++++++++++++++"+
+            "\nID: " +getid()+
+            "\nJob: " +getJob().getName()+
+            "\nDate: " +getDate() +
+            "\nJobseeker: " +getJobseeker().getName()+
+            "\nAdminFee: " +getAdminFee()+
+            "\nTotal Fee: " +getTotalFee()+
+            "\nInvoice Status: " + getInvoiceStatus()+
+            "\n++++++++++++++++++++++++++++++++++++";
+        }else{
+            return "++++++++++++++++++++++++++++++++++++"+
+            "\nID: " +getid()+
+            "\nJob: " +getJob().getName()+
+            "\nDate: " +getDate() +
+            "\nJobseeker: " +getJobseeker().getName()+
+            "\nAdminFee: " +getAdminFee()+
+            "\nTotal Fee: " +getTotalFee()+
+            "\nInvoice Status: " + getInvoiceStatus()+
+            "\n++++++++++++++++++++++++++++++++++++";
+        }
+    }
+    /*public void printData(){
         if(adminFee == 0){
             System.out.println("++++++++++++++++++++++++++++++++++++"+
             "\nID: " +getid()+
@@ -57,5 +80,4 @@ public class BankPayment extends Invoice{
             "\nInvoice Status: " + getInvoiceStatus()+
             "\n++++++++++++++++++++++++++++++++++++");
         }
-    }
-}
+    }*/

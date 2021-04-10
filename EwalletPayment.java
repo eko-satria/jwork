@@ -2,12 +2,12 @@ public class EwalletPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, date, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
+        super(id, job, jobseeker, invoiceStatus);
     }
 
-    public EwalletPayment(int id, Job job, String date, Jobseeker jobseeker,Bonus bonus, InvoiceStatus invoiceStatus){
-        super(id, job, date, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, Job job, Jobseeker jobseeker,Bonus bonus, InvoiceStatus invoiceStatus){
+        super(id, job, jobseeker, invoiceStatus);
         this.bonus = bonus;
     }
 
@@ -33,7 +33,30 @@ public class EwalletPayment extends Invoice {
         }
     
 }
-    public void printData(){
+    public String toString(){
+        if(bonus == null || totalFee < getBonus().getMinTotalFee()){
+            return "++++++++++++++++++++++++++++++++++++" +
+            "\nID: " +getid() +
+            "\nJob: " +getJob().getName() +
+            "\nDate: " +getDate() +
+            "\nJobseeker: " +getJobseeker().getName() +
+            "\nPayment Type: " +getPaymentType() +
+            "\nStatus: " +getInvoiceStatus()+
+            "\n++++++++++++++++++++++++++++++++++++";
+        }else{
+            return "++++++++++++++++++++++++++++++++++++" +
+            "\nID: " +getid() +
+            "\nJob: " +getJob().getName() +
+            "\nDate: " +getDate() +
+            "\nTotal Fee: " +getTotalFee()+
+            "\nJobseeker: " +getJobseeker().getName() +
+            "\nPayment Type: " +getPaymentType() +
+            "\nStatus: " +getInvoiceStatus()+
+            "\nReferral Code : " + getBonus().getRefferalCode() +
+            "\n++++++++++++++++++++++++++++++++++++";
+        }
+    }
+    /*public void printData(){
         if(bonus == null || totalFee < getBonus().getMinTotalFee()){
             System.out.println("++++++++++++++++++++++++++++++++++++" +
             "\nID: " +getid() +
@@ -56,5 +79,5 @@ public class EwalletPayment extends Invoice {
             "\nReferral Code : " + getBonus().getRefferalCode() +
             "\n++++++++++++++++++++++++++++++++++++");
         }
-    }
+    }*/
 }
