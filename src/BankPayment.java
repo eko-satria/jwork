@@ -26,13 +26,21 @@ public class BankPayment extends Invoice{
     }
 
     public void setTotalFee(){
-        if(adminFee == 0){
+        getJob().forEach((jobFee) -> {
+            if (adminFee == 0) {
+                totalFee = jobFee.getFee() - adminFee;
+            } else {
+                totalFee = foodPrice.getPrice();
+            }
+        });
+
+        /*if(adminFee == 0){
             totalFee = super.getJob().getFee() - adminFee;
         }
 
         else{
             totalFee = jobseeker.getFee;
-        }
+        }*/
     }
 
     public String toString(){

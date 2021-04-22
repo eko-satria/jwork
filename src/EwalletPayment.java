@@ -26,20 +26,35 @@ public class EwalletPayment extends Invoice {
     }
 
     public void setTotalFee(){
-        if( bonus != null && getJob().getFee() > getBonus().getMinTotalFee()){
+        getJob().forEach((jobFee)->{
+            if(bonus != null && jobFee.getFee() >getBonus().getMinTotalFee()){
+                totalFee = jobFee.getFee() + getBonus().getExtraFee();
+            }
+            else{
+                totalFee = jobFee.getFee();
+            }
+        });
+        
+        /*if( bonus != null && getJob().getFee() > getBonus().getMinTotalFee()){
             totalFee = super.totalFee + getBonus().getExtraFee();
         }
 
         else{
             totalFee = super.getJob().getFee();
-        }
+        }*/
     
 }
     public String toString(){
+        String job = " ";
+        
+        for(Job jobList : getJob()) {
+            job = job + jobList.getName() + ", ";
+        }
+        job = job.substring(0, job.length() - 2);
         if(bonus == null || totalFee < getBonus().getMinTotalFee()){
             return "++++++++++++++++++++++++++++++++++++" +
             "\nID: " +getid() +
-            "\nJob: " +getJob().getName() +
+            "\nJob: " +job +
             "\nDate: " +getDate() +
             "\nJobseeker: " +getJobseeker().getName() +
             "\nPayment Type: " +getPaymentType() +
@@ -48,7 +63,7 @@ public class EwalletPayment extends Invoice {
         }else{
             return "++++++++++++++++++++++++++++++++++++" +
             "\nID: " +getid() +
-            "\nJob: " +getJob().getName() +
+            "\nJob: " +job +
             "\nDate: " +getDate() +
             "\nTotal Fee: " +getTotalFee()+
             "\nJobseeker: " +getJobseeker().getName() +
