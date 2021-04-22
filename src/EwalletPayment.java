@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public class EwalletPayment extends Invoice {
     private static final PaymentType PAYMENT_TYPE = PaymentType.EwalletPayment;
     private Bonus bonus;
 
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, ArrayList<Job> job, Jobseeker jobseeker){
+        super(id, job, jobseeker);
     }
 
-    public EwalletPayment(int id, Job job, Jobseeker jobseeker,Bonus bonus, InvoiceStatus invoiceStatus){
-        super(id, job, jobseeker, invoiceStatus);
+    public EwalletPayment(int id, ArrayList<Job> job, Jobseeker jobseeker,Bonus bonus){
+        super(id, job, jobseeker);
         this.bonus = bonus;
     }
 

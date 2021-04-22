@@ -1,13 +1,15 @@
+import java.util.ArrayList;
+
 public class BankPayment extends Invoice{
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     int adminFee;
 
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus){
-        super(id, job, jobseeker, invoiceStatus);
+    public BankPayment(int id, ArrayList<Job> job, String date, Jobseeker jobseeker){
+        super(id, job, jobseeker);
     }
 
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee){
-        super(id, job, jobseeker, invoiceStatus);
+    public BankPayment(int id, ArrayList<Job> job, String date, Jobseeker jobseeker, int adminFee){
+        super(id, job, jobseeker);
         this.adminFee = adminFee;
     }
 
@@ -29,7 +31,7 @@ public class BankPayment extends Invoice{
         }
 
         else{
-            totalFee = super.getJob().getFee();
+            totalFee = jobseeker.getFee;
         }
     }
 
@@ -38,7 +40,7 @@ public class BankPayment extends Invoice{
             return "++++++++++++++++++++++++++++++++++++"+
             "\nID: " +getid()+
             "\nJob: " +getJob().getName()+
-            "\nDate: " +getDate() +
+            "\nDate: " +getDate().getTime() +
             "\nJobseeker: " +getJobseeker().getName()+
             "\nAdminFee: " +getAdminFee()+
             "\nTotal Fee: " +getTotalFee()+
@@ -48,7 +50,7 @@ public class BankPayment extends Invoice{
             return "++++++++++++++++++++++++++++++++++++"+
             "\nID: " +getid()+
             "\nJob: " +getJob().getName()+
-            "\nDate: " +getDate() +
+            "\nDate: " +getDate().getTime() +
             "\nJobseeker: " +getJobseeker().getName()+
             "\nAdminFee: " +getAdminFee()+
             "\nTotal Fee: " +getTotalFee()+

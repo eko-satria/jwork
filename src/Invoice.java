@@ -1,10 +1,6 @@
+import java.util.ArrayList;
 import java.util.Calendar; 
-import java.util.Date; 
 import java.util.GregorianCalendar;
-import java.util.Locale;
-import java.util.TimeZone;
-import java.text.SimpleDateFormat; 
-import java.time.LocalTime;
 /**
  * Write a description of class Invoice here.
  *
@@ -14,16 +10,16 @@ import java.time.LocalTime;
 public abstract class Invoice
 {
     private int id;
-    private Job job;
+    private ArrayList<Job> job;
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
 
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, ArrayList<Job> job, Jobseeker jobseeker)
     {
         this.id = id;
-        this.job = job;
+        this.job = new ArrayList<Job>();
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
@@ -33,7 +29,7 @@ public abstract class Invoice
         return id;
     }
 
-    public Job getJob(){
+    public ArrayList<Job> getJob () {
         return job;
     }
 
@@ -59,7 +55,7 @@ public abstract class Invoice
         this.id = id;
     }
 
-    public void setidJobs(Job job){
+    public void setidJobs(ArrayList<Job> job){
         this.job = job;
     }
 
