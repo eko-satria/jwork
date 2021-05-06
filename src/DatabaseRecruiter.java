@@ -12,13 +12,13 @@ public class DatabaseRecruiter {
         return lastId;
     }
 
-    public static Recruiter getRecruiterById(int id) {
+    public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
         for(Recruiter recruiter : RECRUITER_DATABASE) {
             if(recruiter.getId() == id) {
                 return recruiter;
             }
         }
-        return null;
+        throw new RecruiterNotFoundException(id);
     }
 
     public static boolean addRecruiter(Recruiter recruiter) {
@@ -28,13 +28,13 @@ public class DatabaseRecruiter {
         return true;
     }
 
-    public static boolean removeRecruiter(int id) {
+    public static boolean removeRecruiter(int id) throws RecruiterNotFoundException {
         for(Recruiter recruiter : RECRUITER_DATABASE) {
             if(recruiter.getId() == id) {
                 RECRUITER_DATABASE.remove(recruiter);
                 return true;
             }
         }
-        return false;
+        throw new RecruiterNotFoundException(id);
     }
 }

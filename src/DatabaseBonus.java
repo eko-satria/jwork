@@ -1,27 +1,27 @@
 import java.util.ArrayList;
 
 public class DatabaseBonus {
-    private static ArrayList<Bonus> BONUS_DATABASE = new ArrayList<>();
+    private static final ArrayList<Bonus> BONUS_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-    public static ArrayList<Bonus> getBonusDatabase() {
+    public static final ArrayList<Bonus> getBonusDatabase() {
         return BONUS_DATABASE;
     }
     
-    public static int getLastId() {
+    public static final int getLastId() {
         return lastId;
     }
     
-    public static Bonus gettBonusById(int id) {
+    public static final Bonus gettBonusById(int id) throws BonusNotFoundException{
         for (Bonus bonus : BONUS_DATABASE) {
             if(bonus.getid() == id) {
                 return bonus;
             }
         }
-        return null;
+        throw new BonusNotFoundException(id);
     }
 
-    public static String getBonusByReferralCode(String referralCode) {
+    public static final String getBonusByReferralCode(String referralCode) {
         for(Bonus bonus : BONUS_DATABASE) {
             if(bonus.getRefferalCode().equals(referralCode)) {
                 return referralCode;
@@ -30,10 +30,10 @@ public class DatabaseBonus {
         return null;
     }
 
-    public static boolean addBonus(Bonus bonus) {
+    public static final boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException{
         for(Bonus tester1 : BONUS_DATABASE){
             if(tester1.getRefferalCode().equals(bonus.getRefferalCode())){
-                return false;
+                throw new ReferralCodeAlreadyExistsException(bonus);
             }
             else{
                 BONUS_DATABASE.add(bonus);
@@ -43,7 +43,7 @@ public class DatabaseBonus {
         return true;
     }
 
-    public static boolean activateBonus(int id) {
+    public static final boolean activateBonus(int id) {
         for(Bonus bonus : BONUS_DATABASE) {
             if(bonus.getid() == id) {
                 bonus.setActive(true);
@@ -53,7 +53,7 @@ public class DatabaseBonus {
         return false;
     }
     
-    public static boolean deactivateBonus(int id) {
+    public static final boolean deactivateBonus(int id) {
         for(Bonus bonus : BONUS_DATABASE) {
             if(bonus.getid() == id) {
                 bonus.setActive(false);
@@ -63,13 +63,13 @@ public class DatabaseBonus {
         return false;
     }
 
-    public static boolean removeBonus(int id) {
+    public static final boolean removeBonus(int id) throws BonusNotFoundException{
         for(Bonus bonus : BONUS_DATABASE) {
             if (bonus.getid() == id) {
                 BONUS_DATABASE.remove(bonus);
                 return true;
             }
         }
-        return false;
+        throw new BonusNotFoundException(id);
     }
 }

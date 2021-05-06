@@ -30,8 +30,9 @@ public class BankPayment extends Invoice{
             if (adminFee == 0) {
                 totalFee = jobFee.getFee() - adminFee;
             } else {
-                totalFee = foodPrice.getPrice();
+                totalFee = jobFee.getFee();
             }
+
         });
 
         /*if(adminFee == 0){
@@ -44,10 +45,18 @@ public class BankPayment extends Invoice{
     }
 
     public String toString(){
+
+        String jobpayment = " ";
+
+        for(Job jobList : getJob()) {
+            jobpayment = jobpayment + jobList.getName() + ", ";
+        }
+        jobpayment = jobpayment.substring(0, jobpayment.length() - 2);
+        
         if(adminFee == 0){
             return "++++++++++++++++++++++++++++++++++++"+
             "\nID: " +getid()+
-            "\nJob: " +getJob().getName()+
+            "\nJob: " +jobpayment+
             "\nDate: " +getDate().getTime() +
             "\nJobseeker: " +getJobseeker().getName()+
             "\nAdminFee: " +getAdminFee()+
@@ -57,7 +66,7 @@ public class BankPayment extends Invoice{
         }else{
             return "++++++++++++++++++++++++++++++++++++"+
             "\nID: " +getid()+
-            "\nJob: " +getJob().getName()+
+            "\nJob: " +jobpayment+
             "\nDate: " +getDate().getTime() +
             "\nJobseeker: " +getJobseeker().getName()+
             "\nAdminFee: " +getAdminFee()+
@@ -65,6 +74,10 @@ public class BankPayment extends Invoice{
             "\nInvoice Status: " + getInvoiceStatus()+
             "\n++++++++++++++++++++++++++++++++++++";
         }
+
+    }
+
+        
     }
     /*public void printData(){
         if(adminFee == 0){

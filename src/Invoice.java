@@ -73,11 +73,7 @@ public abstract class Invoice
         this.jobseeker = jobseeker;
     }
 
-    public void setPaymentType(){;
-    }
-
     public void setInvoiceStatus(InvoiceStatus invoiceStatus){
-        this.invoiceStatus = invoiceStatus;
     }
     public String toString(){
         return "";

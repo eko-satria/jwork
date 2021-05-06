@@ -12,19 +12,19 @@ public class DatabaseJobseeker {
         return lastId;
     }
 
-    public static Jobseeker getJobseekerById(int id) {
+    public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException {
         for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
             if(jobseeker.getid() == id) {
                 return jobseeker;
             }
         }
-        return null;
+        throw new JobSeekerNotFoundException(id);
     }
 
-    public static boolean addJobseeker(Jobseeker jobseeker) {
+    public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException {
 
         if(jobseeker.getEmail().equals(jobseeker.getEmail())){
-            return false;
+            throw new EmailAlreadyExistsException(jobseeker);
         }
         else{
             JOBSEEKER_DATABASE.add(jobseeker);
@@ -33,13 +33,13 @@ public class DatabaseJobseeker {
         return false;
     }
 
-    public static boolean removeJobseeke(int id) {
+    public static boolean removeJobseeke(int id) throws JobSeekerNotFoundException {
         for(Jobseeker jobseeker : JOBSEEKER_DATABASE) {
             if (jobseeker.getid() == id) {
                 JOBSEEKER_DATABASE.remove(jobseeker);
                 return true;
             }
         }
-        return false;
+        throw new JobSeekerNotFoundException(id);
     }
 }

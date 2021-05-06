@@ -1,4 +1,8 @@
 import java.util.GregorianCalendar;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.regex.*;
+
 
 /**
  * Write a description of class JWork here.
@@ -10,19 +14,57 @@ public class JWork
 {
     public static void main(String[] args) {
         Location location = new Location("Depok", "Jawa Barat", "Tempat Makan nomor 1 se-Depok");
-        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId()+1, "Marinus Martin", "martinf95@gmail.gov", "08227617829", location));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId(), "Eko Satria", "eko.satria@ui.ac.id", "qwerty19OK"));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId(), "Eko Satria", "eko.satria@ui.ac.id", "WASD9090yeah"));
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId(), "Ilmi", "fathur@gmail.com", "AAAAAyeah10"));
+        
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId()+1, "Fatih", "fatitr@gmail.com", "0888888888", location));
 
-        System.out.println(DatabaseCustomer.getCustomerDatabase());
+        try {
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId()+1, "teset 33", 10000, JobCategory.DataAnalyst, DatabaseRecruiter.getRecruiterById(1)));
+        } catch (RecruiterNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+        
 
-        Job job1 = new Job(1, "Job1", 10000, JobCategory.DataScientist, DatabaseRecruiter.getRecruiterById(0));
-        Job job2 = new Job(1, "Job2", 12000, JobCategory.BackEnd, DatabaseRecruiter.getRecruiterById(0));
-        Job job3 = new Job(1, "Job2", 15000, JobCategory.BackEnd, DatabaseRecruiter.getRecruiterById(0));
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Marinus Martin", "martinf95@gmail.gov", "password"));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Martina", "martinf95@gmail.gov", "password"));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Bayu Satria Martin", "bayubayu@gmail.gov", "password"));
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId()+1, "Fajar Milleano", "fajarmilleano21@gmail.com", "password"));
+        } catch (EmailAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        try {
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "Bonus 1", 1000, 10000, true));
+            DatabaseBonus.addBonus(new Bonus(DatabaseBonus.getLastId()+1, "Bonus 1", 1000, 10000, true));
+        } catch (ReferralCodeAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+        }
 
-        System.out.println(DatabaseJob.getJobByCategory(JobCategory.BackEnd));
-        System.out.println(DatabaseJob.getJobByCategory(JobCategory.DataScientist));
+        try {
+            DatabaseJobseeker.getJobseekerById(4);
+            
+        } catch (JobSeekerNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseBonus.removeBonus(3);
+        } catch (BonusNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseRecruiter.removeRecruiter(4);
+        } catch (RecruiterNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            DatabaseJob.removeJob(5);
+        } catch (JobNotFoundException e) {
+           System.out.println(e.getMessage());
+        }
+
         }
     
 }

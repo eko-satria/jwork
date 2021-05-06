@@ -45,16 +45,16 @@ public class EwalletPayment extends Invoice {
     
 }
     public String toString(){
-        String job = " ";
+        String jobpayment = " ";
         
         for(Job jobList : getJob()) {
-            job = job + jobList.getName() + ", ";
+            jobpayment = jobpayment + jobList.getName() + ", ";
         }
-        job = job.substring(0, job.length() - 2);
+        jobpayment = jobpayment.substring(0, jobpayment.length() - 2);
         if(bonus == null || totalFee < getBonus().getMinTotalFee()){
             return "++++++++++++++++++++++++++++++++++++" +
             "\nID: " +getid() +
-            "\nJob: " +job +
+            "\nJob: " +jobpayment +
             "\nDate: " +getDate() +
             "\nJobseeker: " +getJobseeker().getName() +
             "\nPayment Type: " +getPaymentType() +
@@ -63,7 +63,7 @@ public class EwalletPayment extends Invoice {
         }else{
             return "++++++++++++++++++++++++++++++++++++" +
             "\nID: " +getid() +
-            "\nJob: " +job +
+            "\nJob: " +jobpayment +
             "\nDate: " +getDate() +
             "\nTotal Fee: " +getTotalFee()+
             "\nJobseeker: " +getJobseeker().getName() +

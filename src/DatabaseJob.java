@@ -12,13 +12,13 @@ public class DatabaseJob {
         return lastId;
     }
 
-    public static Job getJobById(int id) {
+    public static Job getJobById(int id) throws JobNotFoundException{
         for(Job job : JOB_DATABASE) {
             if(job.getid() == id) {
                 return job;
             }
         }
-        return null;
+        throw new JobNotFoundException(id);
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
@@ -50,14 +50,14 @@ public class DatabaseJob {
         return true;
     }
 
-    public static boolean removeJob (int id) {
+    public static boolean removeJob (int id) throws JobNotFoundException {
         for(Job job : JOB_DATABASE) {
             if (job.getid() == id) {
                 JOB_DATABASE.remove(job);
                 return true;
             }
         }
-        return false;
+        throw new JobNotFoundException(id);
     }
 
 
