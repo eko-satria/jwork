@@ -1,5 +1,4 @@
 package eko.jwork;
-import java.util.*;
 
 public class BonusNotFoundException extends Exception {
     private int bonus_error;

@@ -13,7 +13,7 @@ public class DatabaseBonus {
         return lastId;
     }
     
-    public static final Bonus gettBonusById(int id) throws BonusNotFoundException{
+    public static final Bonus getBonusById(int id) throws BonusNotFoundException{
         for (Bonus bonus : BONUS_DATABASE) {
             if(bonus.getid() == id) {
                 return bonus;
@@ -22,7 +22,7 @@ public class DatabaseBonus {
         throw new BonusNotFoundException(id);
     }
 
-    public static final String getBonusByReferralCode(String referralCode) {
+    public static final Bonus getBonusByReferralCode(Bonus referralCode) {
         for(Bonus bonus : BONUS_DATABASE) {
             if(bonus.getRefferalCode().equals(referralCode)) {
                 return referralCode;

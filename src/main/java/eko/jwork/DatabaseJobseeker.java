@@ -22,7 +22,7 @@ public class DatabaseJobseeker {
         throw new JobSeekerNotFoundException(id);
     }
 
-    public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException {
+    public static boolean registerJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException {
 
         if(jobseeker.getEmail().equals(jobseeker.getEmail())){
             throw new EmailAlreadyExistsException(jobseeker);
@@ -43,4 +43,14 @@ public class DatabaseJobseeker {
         }
         throw new JobSeekerNotFoundException(id);
     }
+
+    public static Jobseeker jobseekerLogin(String email, String password) throws JobSeekerNotFoundException {
+        for(Jobseeker jobseeker : JOBSEEKER_DATABASE){
+            while(jobseeker.getEmail().equals(jobseeker.getEmail()) && jobseeker.getPassword().equals(jobseeker.getPassword())){
+                return jobseeker;
+            }
+        }
+        throw new JobSeekerNotFoundException(lastId);
+    }
+
 }

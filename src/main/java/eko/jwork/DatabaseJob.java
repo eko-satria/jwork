@@ -5,7 +5,7 @@ public class DatabaseJob {
     private static ArrayList<Job> JOB_DATABASE = new ArrayList<>();
     private static int lastId = 0;
 
-    public static ArrayList<Job> getCustomerDatabase() {
+    public static ArrayList<Job> getJobDatabase() {
         return JOB_DATABASE;
     }
 
@@ -47,7 +47,6 @@ public class DatabaseJob {
     public static boolean addJob (Job job) {
         JOB_DATABASE.add(job);
         lastId = job.getid() + 1;
-        
         return true;
     }
 
@@ -62,5 +61,5 @@ public class DatabaseJob {
     }
 
 
-  
+
 }
